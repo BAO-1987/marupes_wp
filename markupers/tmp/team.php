@@ -2,7 +2,7 @@
         <div class="container">
           <div class="section-heading">
          <h2 class="title">
-          Our specialists in this service:
+          <?php the_field('team_title'); ?>
          </h2>
           </div>
 
@@ -11,7 +11,7 @@
 
             <?php $team_list = get_field('team_list'); ?>
 
-          <?php foreach ($team_list as $team_id):?>
+           <?php foreach ($team_list as $team_id):?>
              
                 <li class="swiper-slide team__member"> <img class="team__img" src="<?php echo get_the_post_thumbnail_url($team_id, 'full');?>"
                   alt="<?php echo get_the_title($team_id)?>" width="270" height="406" loading="lazy">

@@ -3,7 +3,7 @@
           <div class="portfolio__inner">
             <div class="section-heading">
               <h2 class="title"> 
-                Our work in this service:
+              <?php the_field('portfolio_title');?>
                  </h2>
             </div>
             <div class="portfolio__nav"> <button class="slider-btn slider-btn--prev" type="button"></button> <button
@@ -104,6 +104,21 @@
 
                <?php endforeach; ?>
             </ul>
+
           </div>
+            
+       <?php 
+  if ( get_field('portfolio-all-btn') ): 
+   
+    $portfolio_link = get_field('portfolio_all');
+    
+    if ( $portfolio_link ): ?>
+        <a class="btn" href="<?php echo esc_url(get_field('portfolio_all')['url']); ?>">
+          <?php the_field('portfolio_btn'); ?>
+        </a>
+
+    <?php endif; ?>
+   <?php endif; ?>
+              
         </div>
       </section>

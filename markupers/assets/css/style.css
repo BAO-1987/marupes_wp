@@ -266,7 +266,6 @@ h1 {
 h2,
 .title {
   font-weight: var(--fw-700);
-  margin-bottom: 20px;
   font-size: clamp(30px, .9107rem + 4.2857vi, 75px);
   line-height: 1.5
 }
@@ -584,6 +583,10 @@ p {
 .nav__list a:hover,
 .nav__list li.true {
   color: var(--color-orange-400)
+}
+
+.nav__list .sub-menu li{
+  color: var(--color-white)
 }
 
 .nav__list a:hover:before,
@@ -3295,7 +3298,7 @@ p {
 
 [data-theme=light] .service-card:hover:not(.services--article article) a:before,
 [data-theme=light] .service-card:hover:not(.services--article article) h3:before {
-  filter: brightness(0)saturate()invert()sepia()saturate(0%)hue-rotate(342deg)brightness(103%)contrast(101%)
+  filter: brightness(0) invert(1);
 }
 
 [data-theme=light] .services--article article,

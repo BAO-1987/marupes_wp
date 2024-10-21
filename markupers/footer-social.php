@@ -13,10 +13,11 @@
 
   <a class="btn btn--transparent" href="#">Fill in the brief</a>
 
-          <div class="footer__copyright"> <span>
+          <div class="footer__copyright"> 
+          <span>
             <?php echo date('Y');?>
-          </span> <a href="offer.html" class="footer__link">Contract
-              offer</a> 
+          </span> 
+           <a class="footer__link" href="https://markupers.wp/contract-offer/">Contract offer</a> 
             </div>
 
              <ul class="social"> 

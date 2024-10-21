@@ -24,23 +24,6 @@ add_filter('upload_mimes', 'cc_mime_types');
 
 add_filter( 'upload_mimes', 'svg_upload_allow' );
 
-// add_filter('nav_menu_link_attributes', 'filter_nav_menu_link_attributes', 10, 3);
-// function filter_nav_menu_link_attributes($atts, $item, $args) {
-//     // Перевіряємо, чи це меню з назвою 'Main'
-//     if ($args->menu === 'Main') {
-//         // Очищаємо клас для елемента меню
-//         $atts['class'] = '';
-
-//         // Якщо елемент активний, додаємо клас 'true'
-//         if ($item->current) {
-//             $atts['class'] .= 'true';
-//         }
-//     }
-
-//     return $atts;
-// }
-// add_filter('nav_menu_link_attributes', 'filter_nav_menu_link_attributes', 10, 3);
-
 # Добавляет SVG в список разрешенных для загрузки файлов.
 function svg_upload_allow( $mimes ) {
 	$mimes['svg']  = 'image/svg+xml';
@@ -186,61 +169,18 @@ function gm_register()
     'after_widget' => null
   ]);
 
+  register_sidebar([
+    'name' => 'Посилання на контракт',
+    'id' => 'offer',
+    'before_widget' => null,
+    'after_widget' => null
+  ]);
+
   register_widget('gm_widget_social');
   register_widget('gm_widget_email');
   register_widget('gm_widget_contacts');
   register_widget('gm_widget_schedule');
 }
-
-
-// class Header_Walker_Nav_Menu extends Walker_Nav_Menu {
-//     function start_lvl( &$output, $depth = 0, $args = null ) {
-//         $output .= '<ul class="sub-menu">';
-//     }
-
-//     function start_el( &$output, $item, $depth = 0, $args = null, $current_object_id = 0 ) {
-//         $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-
-//         // Видаляємо всі класи
-//          $classes = [];
-
-//         // Якщо елемент активний або є батьківським, додаємо клас 'true'
-//         if (in_array('current-menu-item', $item->classes) || in_array('current-menu-parent', $item->classes)) {
-//             $classes[] = 'true';
-//         }
-
-//         // Формуємо id для елемента, якщо воно є
-//         $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-//         $id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
-
-//         // Формуємо <li> без класів
-//         $output .= $indent . '<li' . $id . '>';
-
-//         // Атрибути для <a> тега
-//         $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-//         $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-//         $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-
-//         // Для елементів з підменю прибираємо href, але додаємо title
-//         if ($args->walker->has_children) {
-//             $link_classes = 'link-dropdown'; // Додаємо клас link-dropdown
-//             $attributes .= ' title="' . esc_attr($item->title) . '"'; // Додаємо title
-//             $item->url = ''; // Видаляємо href
-//         } else {
-//             $link_classes = ''; // Немає класу, якщо це не елемент з підменю
-//         }
-
-//         // Формуємо тег <a> з відповідними атрибутами
-//         $item_output = $args->before;
-//         $item_output .= '<a' . $attributes . ($item->url ? ' href="' . esc_attr( $item->url ) . '"' : '') . ' class="' . esc_attr($link_classes) . '">';
-//         $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-//         $item_output .= '</a>';
-//         $item_output .= $args->after;
-
-//         // Додаємо кінцевий результат у вихідний потік
-//         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-//     }
-// }
 
 class Header_Walker_Nav_Menu extends Walker_Nav_Menu {
 
