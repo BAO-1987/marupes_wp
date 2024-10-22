@@ -265,6 +265,7 @@ h1 {
 
 h2,
 .title {
+  margin-bottom: 20px;
   font-weight: var(--fw-700);
   font-size: clamp(30px, .9107rem + 4.2857vi, 75px);
   line-height: 1.5

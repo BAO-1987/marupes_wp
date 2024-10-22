@@ -82,7 +82,7 @@ function remove_block_css()
 function connect_scripts()
 {
 
-       wp_enqueue_style(
+    wp_enqueue_style(
     'wp-style-vendor',
     _gm_assets_path('css/reset.css'),
     [],
@@ -128,7 +128,6 @@ function cc_mime_types($mimes)
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }
-
 
 function change_my_script($tag, $handle, $src)
 {

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="page">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="dark light">
- <meta charset="<?php bloginfo('charset'); ?>">
+<meta charset="<?php bloginfo('charset'); ?>">
 
 <style>.page{scroll-padding-top:calc(var(--header-height))}</style>
 <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("theme")||"dark");</script>
@@ -39,9 +40,15 @@
             ]);
             ?>
 
-  <button class="theme-switch" type="button"> <img class="dark theme-switch__icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/dark.svg">
-<img class="light theme-switch__icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/light.svg"> <span class="sr-only">Color theme change button</span> </button> </div> 
+  <button class="theme-switch" type="button">
+     <img class="dark theme-switch__icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/dark.svg" aria-hidden="true">
+     <img class="light theme-switch__icon" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/light.svg" aria-hidden="true"> 
+     <span class="sr-only">Color theme change button</span> 
+    </button> 
+
+  </div> 
   
-  <button class="burger" type="button"> <span class="sr-only">Open mobile menu</span> <span class="burger__line"></span> </button>
+  <button class="burger" type="button"> <span class="sr-only">Open mobile menu</span> <span class="burger__line"></span> 
+</button>
 
 </nav> </div> </header> <script>const startHeightValue=()=>{let e=1*window.innerHeight;document.querySelector(":root").style.setProperty("--vh",`${e}px`);const t=document.querySelector(".header"),r=t?t.offsetHeight:0;document.documentElement.style.setProperty("--header-height",`${r}px`)};window.addEventListener("resize",startHeightValue),window.addEventListener("scroll",startHeightValue),startHeightValue();</script>

@@ -26,7 +26,7 @@ get_header();
                     All </label> </li>
                 <li class="custom-checker__item"> <input class="custom-checker__input" type="radio" name="category"
                     value="web-development" id="webDevelopment"> <label class="custom-checker__label"
-                    for="webDevelopment"> Web-development </label> </li>
+                    for="webDevelopment">Web-development </label> </li>
                 <li class="custom-checker__item"> <input class="custom-checker__input" type="radio" name="category"
                     value="promotion" id="promotion"> <label class="custom-checker__label" for="promotion"> Promotion
                   </label> </li>
@@ -71,7 +71,7 @@ get_header();
 
               }
 
-                wp_reset_postdata(); // Скидання глобального об'єкта посту
+                wp_reset_postdata(); 
                
               ?>
              

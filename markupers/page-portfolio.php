@@ -32,7 +32,7 @@ get_header();
 
                <?php foreach ($portfolio_list as $portfolio_id):?>
 
-              <li class="portfolio__item">
+              <li class="portfolio__item services__item <?php the_field('portfolio_filter', $portfolio_id) ?>">
               
                 <div class="portfolio__image"> 
                   <img  src="<?php echo get_the_post_thumbnail_url($portfolio_id, 'full');?>"

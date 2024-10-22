@@ -24,7 +24,10 @@
           <?php the_title();?>
       </h1> 
 
-      <button class="btn modal-btn" type="button">Order a consultation</button> 
+      <button class="btn modal-btn" type="button">
+        Order a consultation
+      </button> 
+
     </div> <ul class="lang"> <li> <a class="active" href="#">eng</a> </li> <li> <a href="#">ua</a> </li> <li> <a href="#">ru</a> </li> </ul> </div> </div> </section> 
 
      <section class="section services">
@@ -59,7 +62,8 @@
     </li>
     <?php endforeach; ?>
   </ul>
-            <a class="btn" href="<?php echo esc_url(get_field('services_all')['url']); ?>">View all services</a>
+
+        <a class="btn" href="<?php echo esc_url(get_field('services_all')['url']); ?>">View all services</a>
           </div>
         </div>
       </section>
@@ -95,71 +99,13 @@
         <?php endforeach; ?>
            
           </ul> 
-          <button class="btn modal-btn" type="button">Order a consultation</button>
+          <button class="btn modal-btn" type="button">
+            Order a consultation
+          </button>
         </div>
       </section>
 
-      <section class="section team">
-        <div class="container">
-          <div class="section-heading">
-         <h2 class="title">
-          <?php the_field('team_title'); ?>
-        </h2>
-
-            <p> <?php the_field('team_text'); ?> </p>
-          </div>
-          <div class="team__slider">
-            <ul class="swiper-wrapper team__list">
-
-            <?php $team_list = get_field('team_list'); ?>
-
-          <?php foreach ($team_list as $team_id):?>
-             
-                <li class="swiper-slide team__member"> <img class="team__img" src="<?php echo get_the_post_thumbnail_url($team_id, 'full');?>"
-                  alt="<?php echo get_the_title($team_id)?>" width="270" height="406" loading="lazy">
-                <div class="team__person-info">
-                  <h3 class="team__name">
-                    <?php echo get_the_title($team_id)?>
-                  </h3>
-                  <p class="team__position">
-                    <?php the_field('team_job', $team_id)?>
-                  </p>
-                </div>
-                <ul class="social">
-
-                <li class="social__item">
-
-                  <?php if (get_field('team_fb', $team_id)): ?> 
-         
-                     <a class="social__link social__link--fb" href="
-                     <?php the_field('team_fb', $team_id); ?>" target="_blank"> <span
-                        class="sr-only">Facebook page</span> </a> 
-                        <?php endif; ?>
-                      </li>
-
-                  <li class="social__item"> 
-                       <?php if (get_field('team_ln', $team_id)): ?> 
-                    <a class="social__link social__link--ln" href="<?php the_field('team_ln', $team_id); ?>" target="_blank"> <span
-                        class="sr-only">Linkedin page</span> 
-                      <?php endif; ?></a> 
-                      </li>
-
-                  <li class="social__item"> 
-                    <?php if (get_field('team_insta', $team_id)): ?> 
-                    <a class="social__link social__link--insta" href="<?php the_field('team_insta', $team_id); ?>" target="_blank"> <span
-                        class="sr-only">Instagram page</span> </a>
-                        <?php endif; ?>
-                       </li>
-                </ul>
-              </li>
-
-          <?php endforeach; ?>
-           
-            </ul>
-            <div class="swiper-pagination team__pagination"></div>
-          </div>
-        </div>
-      </section>
+    <?php get_template_part('tmp/team'); ?>
 
       <section class="section stages stages--advantages">
         <div class="container">
@@ -207,17 +153,20 @@
               <li class="reviews__item swiper-slide">
                 <blockquote class="reviews__blockqoute">
                   <p> <?php the_field('reviews_descr', $reviews_id)?></p>
-                  <div class="reviews__content"> <cite class="reviews__author">
+                  <div class="reviews__content"> 
+                    <cite class="reviews__author">
                      <?php echo get_the_title($reviews_id)?>
                   </cite>
-                    <div class="reviews__links"> <a class="link" href="<?php the_field('reviews_job', $reviews_id)?>" target="_blank">Go to the website</a> <a
-                        class="link link--view" href="<?php the_field('reviews_lang', $reviews_id)?>" target="_blank"
+                    <div class="reviews__links"> 
+                      <a class="link" href="<?php the_field('reviews_job', $reviews_id)?>" target="_blank">Go to the website</a> 
+                      <a class="link link--view" href="<?php the_field('reviews_lang', $reviews_id)?>" target="_blank"
                         >View in original</a>
                        </div>
                   </div>
                 </blockquote>
-                <div class="reviews__image"> <img src="<?php echo get_the_post_thumbnail_url($reviews_id, 'full');?>"
-                alt="<?php echo get_the_title($reviews_id)?>" 
+                <div class="reviews__image">
+                  <img src="<?php echo get_the_post_thumbnail_url($reviews_id, 'full');?>"
+                  alt="<?php echo get_the_title($reviews_id)?>" 
                     width="380" height="175" loading="lazy"> </div>
               </li>
              
@@ -235,8 +184,11 @@
         <div class="container">
           <div class="wrapper">
             <div class="section-heading">
-              <h2 class="title">Blog</h2>
-              <p>Learn more about the world of IT in design, development and marketing, as well as about our company
+              <h2 class="title">
+                <?php the_field('blog_title');?>
+              </h2>
+              <p>
+                <?php the_field('blog_text'); ?>
               </p>
             </div>
             <div class="blog__slider swiper">
@@ -260,11 +212,15 @@
                   // Виведення заголовка посту або інших даних
                 ?>
 
-                <li class="blog__item swiper-slide">
+                <li class="blog__item swiper-slide  <?php the_field('blog_category'); ?>">
                   <article>
                      <a href="<?php the_permalink(); ?>">
                       <header> <span></span>
-                        <div> <span><?php the_time('d.m.y');?></span> <span>3 m</span> </div>
+                        <div> <span><?php the_time('d.m.y');?></span> 
+                        <span>
+                          <?php the_field('blog_time');?>
+                        </span> 
+                      </div>
                       </header>
                       <h3> <?php the_title();?>
                          </h3> <span class="link">Go to the news</span>
@@ -272,7 +228,6 @@
                 </li>
 
                    <?php 
-
               }
 
                 wp_reset_postdata(); // Скидання глобального об'єкта посту

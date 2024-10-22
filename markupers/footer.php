@@ -11,7 +11,7 @@
          alt="logo of markupers">
   </a>
 
-  <a class="btn btn--transparent" href="<?php echo esc_url(get_field('portfolio_all')['url']); ?>">Fill in the brief</a>
+       <a class="btn btn--transparent" href="/">Fill in the brief</a>
 
           <div class="footer__copyright"> 
             <span>

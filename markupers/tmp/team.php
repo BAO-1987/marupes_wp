@@ -4,6 +4,10 @@
          <h2 class="title">
           <?php the_field('team_title'); ?>
          </h2>
+
+       <p>
+        <?php the_field('team_text'); ?>
+      </p>
           </div>
 
           <div class="team__slider">

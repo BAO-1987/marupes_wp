@@ -5,6 +5,10 @@
               <h2 class="title"> 
               <?php the_field('portfolio_title');?>
                  </h2>
+
+                 <p>
+                    <?php the_field('portfolio_text'); ?>
+                 </p>
             </div>
             <div class="portfolio__nav"> <button class="slider-btn slider-btn--prev" type="button"></button> <button
                 class="slider-btn slider-btn--next" type="button"></button> </div>
@@ -16,7 +20,7 @@
 
                <?php foreach ($portfolio_list as $portfolio_id):?>
 
-              <li class="portfolio__item swiper-slide">
+              <li class="portfolio__item swiper-slide <?php the_field('portfolio_filter', $portfolio_id) ?>">
               
                 <div class="portfolio__image"> 
                   <img  src="<?php echo get_the_post_thumbnail_url($portfolio_id, 'full');?>"
@@ -97,8 +101,10 @@
                   <span class="portfolio__category">
                     <?php the_field('portfolio_category', $portfolio_id); ?>
                   </span>
-                  <div class="portfolio__btns"> <a class="btn btn--transparent" href="<?php the_field('portfolio_more', $portfolio_id); ?>">Learn more</a> <a class="link"
-                      href="<?php the_field('portfolio_web', $portfolio_id); ?>" target="_blank">Go to the website</a> </div>
+                  <div class="portfolio__btns"> 
+                    <a class="btn btn--transparent" href="<?php the_field('portfolio_more', $portfolio_id); ?>">Learn more</a> 
+
+                    <a class="link" href="<?php the_field('portfolio_web', $portfolio_id); ?>" target="_blank">Go to the website</a> </div>
                 </div>
               </li>
 
