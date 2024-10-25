@@ -25,10 +25,36 @@
       </h1> 
 
       <button class="btn modal-btn" type="button">
-        Order a consultation
+        <?php the_field('hero_btn');?>
       </button> 
 
-    </div> <ul class="lang"> <li> <a class="active" href="#">eng</a> </li> <li> <a href="#">ua</a> </li> <li> <a href="#">ru</a> </li> </ul> </div> </div> </section> 
+    </div> 
+
+    <?php
+    $languages = pll_the_languages(array(
+      'dropdown' => 0,
+      'show_flags' => 0,
+      'show_names' => 1,
+      'hide_if_empty' => 0,
+      'display_names_as' => 'slug',
+      'raw' => 1
+    ));
+
+    if ($languages) {
+      echo '<ul class="lang">';
+      foreach ($languages as $lang) {
+        $class = $lang['current_lang'] ? 'class="active"' : '';
+        echo '<li>';
+        echo '<a href="' . $lang['url'] . '" ' . $class . '>' . strtoupper($lang['slug']) . '</a>';
+        echo '</li>';
+      }
+      echo '</ul>';
+    }
+    ?>
+
+  </div> 
+  </div> 
+</section> 
 
      <section class="section services">
         <div class="container">
@@ -54,7 +80,16 @@
           <h3><?php echo get_the_title($services_id); ?></h3>
           <p><?php echo get_field('services_desc', $services_id); ?></p>
           <div class="service-card__price">
-            <span>Up to</span> 
+      <span>
+         <?php if ('uk' == pll_current_language()) : ?>
+        До
+         <?php elseif ('ru' == pll_current_language()) : ?>
+        До
+         <?php else : ?>
+        Up to
+         <?php endif; ?>
+      </span>
+
             <span><?php echo get_field('services_price', $services_id); ?></span>
           </div>
         </a>
@@ -63,7 +98,9 @@
     <?php endforeach; ?>
   </ul>
 
-        <a class="btn" href="<?php echo esc_url(get_field('services_all')['url']); ?>">View all services</a>
+        <a class="btn" href="<?php echo esc_url(get_field('services_all')['url']); ?>">
+         <?php the_field('services_btn');?>
+        </a>
           </div>
         </div>
       </section>
@@ -100,8 +137,8 @@
            
           </ul> 
           <button class="btn modal-btn" type="button">
-            Order a consultation
-          </button>
+        <?php the_field('hero_btn');?>
+         </button> 
         </div>
       </section>
 
@@ -129,7 +166,10 @@
             </li>
 
         <?php endforeach; ?>
-          </ul> <a class="btn" href="#">Learn more</a>
+          </ul>
+            <a class="btn" href="<?php echo esc_url(get_field('advantages_all')['url']); ?>"> 
+            <?php the_field('advantages_btn'); ?>
+           </a>
         </div>
       </section>
 
@@ -237,7 +277,12 @@
               </ul> 
               <button class="blog__slider-button blog__slider-button--prev" type="button"></button> <button
                 class="blog__slider-button blog__slider-button--next" type="button"></button>
-            </div> <a class="btn" href="#"> View all news </a>
+            </div> 
+            
+          <a class="btn" href="<?php echo esc_url(get_field('blog_all')['url']); ?>">
+         <?php the_field('blog_btn');?>
+        </a>
+        
           </div>
         </div>
       </section>
