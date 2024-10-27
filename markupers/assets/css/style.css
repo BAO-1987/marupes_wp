@@ -586,7 +586,7 @@ p {
   color: var(--color-orange-400)
 }
 
-.nav__list .sub-menu li{
+.nav__list .sub-menu li {
   color: var(--color-white)
 }
 
@@ -752,7 +752,7 @@ p {
 }
 
 [class].btn--pagination {
-  max-width: 210px;
+  min-width: 210px;
   color: var(--color-white);
   background-color: #0000;
   border-color: currentColor;
@@ -2045,7 +2045,6 @@ p {
 
   .stages__list--services li.last-odd {
     grid-column: 1 / span 2 !important
-
   }
 
   .stages__list--services .stages__item:nth-child(5):after {
@@ -2156,9 +2155,9 @@ p {
     grid-column: auto
   }
 
-   .stages__list--services li.last-odd {
-     grid-column: auto !important
-   }
+  .stages__list--services li.last-odd {
+    grid-column: auto !important
+  }
 
   .stages__item:nth-child(2):not(.stages--advantages .stages__item):after {
     transform: translate(-50%, -50%)
@@ -4197,18 +4196,20 @@ p {
   width: 100%
 }
 
-.pagination {
+.pagination ul {
   flex-wrap: wrap;
   align-items: center;
   gap: 15px;
   display: inline-flex
 }
 
-.pagination__next {
+
+
+.pagination li:has(.next) {
   margin-left: 50px
 }
 
-.pagination li a:not(.btn) {
+.pagination .page-numbers:not(ul, .next) {
   border-radius: var(--radius-round);
   width: 50px;
   height: 50px;
@@ -4226,21 +4227,34 @@ p {
   overflow: hidden
 }
 
-.pagination li a:not(.btn):hover {
+.pagination .prev.page-numbers {
+  display: none;
+}
+
+.pagination .page-numbers:hover {
   color: #fff
 }
 
-.pagination li a:not(.btn).active {
+.pagination .page-numbers.current {
   color: #fff;
-  background-color: var(--color-orange-400)
+  background-color: var(--color-orange-400);
+  font-size: clamp(18px, .9519rem + .7692vw, 30px);
+  text-align: center;
+}
+
+.pagination .page-numbers.dots {
+  align-items: end;
+    border-radius: 0;
+    background-color: transparent;
+    letter-spacing: 0.01em;
 }
 
 @media only screen and (max-width:768px) {
-  .pagination {
+  .pagination ul {
     justify-content: center
   }
 
-  .pagination__next {
+  .pagination li:has(.next) {
     margin-left: 20px
   }
 }

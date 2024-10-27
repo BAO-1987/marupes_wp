@@ -258,7 +258,7 @@
                       <header> <span></span>
                         <div> <span><?php the_time('d.m.y');?></span> 
                         <span>
-                          <?php the_field('blog_time');?>
+                          <?php the_field('blog_read');?>
                         </span> 
                       </div>
                       </header>
@@ -314,5 +314,7 @@
       </section>
 
      <?php get_template_part('tmp/contacts'); ?>
+
+      </main>
 
       <?php get_footer();?>

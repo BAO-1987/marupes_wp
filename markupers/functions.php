@@ -168,18 +168,21 @@ function gm_register()
     'after_widget' => null
   ]);
 
-  register_sidebar([
-    'name' => 'Посилання на контракт',
-    'id' => 'offer',
-    'before_widget' => null,
-    'after_widget' => null
-  ]);
 
   register_widget('gm_widget_social');
   register_widget('gm_widget_email');
   register_widget('gm_widget_contacts');
   register_widget('gm_widget_schedule');
 }
+
+function disable_plugin_updates($value) {
+    if(isset($value) && is_object($value)) {
+       unset($value->response);
+    }
+    return $value;
+}
+add_filter('site_transient_update_plugins', 'disable_plugin_updates');
+
 
 class Header_Walker_Nav_Menu extends Walker_Nav_Menu {
 
