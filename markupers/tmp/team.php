@@ -21,7 +21,7 @@
                   alt="<?php echo get_the_title($team_id)?>" width="270" height="406" loading="lazy">
                 <div class="team__person-info">
                   <h3 class="team__name">
-                    <?php echo get_the_title($team_id)?>
+                <?php echo get_the_title($team_id) ?>
                   </h3>
                   <p class="team__position">
                     <?php the_field('team_job', $team_id)?>

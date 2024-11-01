@@ -81,7 +81,7 @@
           <p><?php echo get_field('services_desc', $services_id); ?></p>
           <div class="service-card__price">
       <span>
-         <?php if ('uk' == pll_current_language()) : ?>
+         <?php if ('ua' == pll_current_language()) : ?>
         До
          <?php elseif ('ru' == pll_current_language()) : ?>
         До

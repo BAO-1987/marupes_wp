@@ -137,9 +137,9 @@ get_header();
 </div>
 
       <div id="lessons">
-                  <ul class="blog__list blog__list--video">
+        <ul class="blog__list blog__list--video">
 
-                       <?php
+      <?php
        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
        $query = new WP_Query( array(
            'posts_per_page' => 1,

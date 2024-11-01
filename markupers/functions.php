@@ -183,6 +183,15 @@ function disable_plugin_updates($value) {
 }
 add_filter('site_transient_update_plugins', 'disable_plugin_updates');
 
+function add_custom_pagination_vars($vars)
+{
+  $vars[] = 'paged_news';
+  $vars[] = 'paged_lessons';
+  return $vars;
+}
+add_filter('query_vars', 'add_custom_pagination_vars');
+
+
 
 class Header_Walker_Nav_Menu extends Walker_Nav_Menu {
 
@@ -231,6 +240,12 @@ class Header_Walker_Nav_Menu extends Walker_Nav_Menu {
         // Додаємо кінцевий результат у вихідний потік
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
+}
+
+add_filter('pll_get_post_types', 'fixwp_add_acf_pll', 10, 2);
+function fixwp_add_acf_pll( $post_types, $is_settings ) {
+    $post_types[] = 'acf';
+    return $post_types;
 }
 
 

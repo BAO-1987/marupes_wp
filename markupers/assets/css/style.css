@@ -1348,6 +1348,7 @@ p {
   margin-bottom: 10px;
   padding-left: 5rem;
   display: flex;
+  word-break: break-word;
   position: relative
 }
 
@@ -4194,6 +4195,10 @@ p {
 
 .tabs__panels {
   width: 100%
+}
+
+.tabs__panels div[hidden] {
+ display: none !important;
 }
 
 .pagination ul {

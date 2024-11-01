@@ -35,14 +35,35 @@
 
                   <?php if (get_field('portfolio_hours', $portfolio_id)): ?> 
                     <div class="portfolio__detail">
-                      <dt>Hours of work</dt> <span></span>
+                      <dt>
+                        <?php if ('ua' == pll_current_language()): ?>
+                         Витрачено часу
+                        <?php elseif ('ru' == pll_current_language()): ?>
+                          До
+                        <?php else: ?>
+                         Hours of work
+                        <?php endif; ?>
+                      </dt> <span></span>
                       <dd><?php the_field('portfolio_hours', $portfolio_id); ?></dd>
                     </div>
                   <?php endif; ?>
 
                   <?php if (get_field('portfolio_specialist', $portfolio_id)): ?> 
                     <div class="portfolio__detail">
-                      <dt>Specialists</dt> <span></span>
+                      <dt>
+                         <?php
+                          $current_lang = pll_current_language();
+                          if ('ua' === $current_lang): ?>
+                        Спеціалісти
+                          <?php elseif ('ru' === $current_lang): ?>
+                        До
+                          <?php else: ?>
+                        Specialists
+                          <?php endif; ?>
+                        
+
+                      </dt> 
+                        <span></span>
                       <dd><?php the_field('portfolio_specialist', $portfolio_id); ?></dd>
                     </div>
                   <?php endif; ?>
