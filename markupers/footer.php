@@ -11,7 +11,9 @@
          alt="logo of markupers">
   </a>
 
-       <a class="btn btn--transparent" href="/">Fill in the brief</a>
+       <a class="btn btn--transparent" href="/">
+        Fill in the brief
+      </a>
 
           <div class="footer__copyright"> 
             <span>

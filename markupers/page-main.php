@@ -198,16 +198,36 @@
                      <?php echo get_the_title($reviews_id)?>
                   </cite>
                     <div class="reviews__links"> 
-                      <a class="link" href="<?php the_field('reviews_job', $reviews_id)?>" target="_blank">Go to the website</a> 
-                      <a class="link link--view" href="<?php the_field('reviews_lang', $reviews_id)?>" target="_blank"
-                        >View in original</a>
+                      <a class="link" href="<?php the_field('reviews_job', $reviews_id)?>" target="_blank">
+                         <?php
+                          $current_lang = pll_current_language();
+                          if ('ua' === $current_lang): ?>
+                       Перейти на сайт
+                          <?php elseif ('ru' === $current_lang): ?>
+                        До
+                          <?php else: ?>
+                        Go to the website
+                          <?php endif; ?>
+                      </a> 
+                      <a class="link link--view" href="<?php the_field('reviews_lang', $reviews_id)?>" target="_blank">
+                         <?php
+                          $current_lang = pll_current_language();
+                          if ('ua' === $current_lang): ?>
+                     Переглянути в оригіналі
+                          <?php elseif ('ru' === $current_lang): ?>
+                        До
+                          <?php else: ?>
+                        View in original
+                          <?php endif; ?>
+                      </a>
                        </div>
                   </div>
                 </blockquote>
                 <div class="reviews__image">
                   <img src="<?php echo get_the_post_thumbnail_url($reviews_id, 'full');?>"
                   alt="<?php echo get_the_title($reviews_id)?>" 
-                    width="380" height="175" loading="lazy"> </div>
+                    width="380" height="175" loading="lazy">
+                  </div>
               </li>
              
               <?php endforeach; ?>
@@ -263,7 +283,18 @@
                       </div>
                       </header>
                       <h3> <?php the_title();?>
-                         </h3> <span class="link">Go to the news</span>
+                         </h3>
+                          <span class="link">
+                           <?php
+                          $current_lang = pll_current_language();
+                          if ('ua' === $current_lang): ?>
+                     Перейти до новин
+                          <?php elseif ('ru' === $current_lang): ?>
+                        До
+                          <?php else: ?>
+                       Go to the news
+                          <?php endif; ?>
+                        </span>
                     </a> </article>
                 </li>
 
@@ -292,24 +323,37 @@
           <div class="section-heading">
             <h2 class="title">FAQ</h2>
           </div>
-          <ul class="faq__list faq__list--home">
-            <li class="faq__item"> <span>You:</span>
-              <p>How long does it take to develop a project?</p>
-            </li>
-            <li class="faq__item faq__item--manager"> <span>Manager:</span>
-              <p></p>
-            </li>
-            <li class="faq__item faq__item--manager"> <span>Manager:</span>
-              <p>Hello! Depending on...
-               <a href="<?php echo esc_url(get_field('main_faq')['url']); ?>">Read more</a>
-              </p>
-            </li>
-            <li class="faq__item faq__item--manager"> <span>Manager:</span>
-              <p>You will find more answers in the section 
-               <a href="<?php echo esc_url(get_field('main_faq')['url']); ?>">FAQ</a>
-              </p>
-            </li>
-          </ul>
+    <ul class="faq__list faq__list--home">
+  <?php 
+  $faq_count = get_field('faq_count'); 
+  ?>
+
+
+  <li class="faq__item"> 
+    <span>Ви:</span>
+    <p><?php the_field('faq_question'); ?></p>
+  </li>
+
+ 
+  <?php for ($counter = 1; $counter <= $faq_count; $counter++): ?> 
+    <li class="faq__item faq__item--manager">
+      <span>Менеджер:</span>
+      <p>
+        <?php the_field('faq_anwerse' . $counter); ?> 
+
+        <?php 
+        $sub_link = get_field('faq_link' . $counter); 
+        if ($sub_link): ?>
+          <a href="<?php echo esc_url($sub_link['url']); ?>">
+            <?php echo esc_html(pll__('Детальніше')); ?>
+          </a>
+        <?php endif; ?>
+      </p>
+    </li>
+  <?php endfor; ?>
+</ul>
+
+
         </div>
       </section>
 

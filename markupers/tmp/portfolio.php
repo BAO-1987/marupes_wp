@@ -61,7 +61,6 @@
                         Specialists
                           <?php endif; ?>
                         
-
                       </dt> 
                         <span></span>
                       <dd><?php the_field('portfolio_specialist', $portfolio_id); ?></dd>
