@@ -323,35 +323,46 @@
           <div class="section-heading">
             <h2 class="title">FAQ</h2>
           </div>
-    <ul class="faq__list faq__list--home">
-  <?php 
-  $faq_count = get_field('faq_count'); 
-  ?>
 
-
-  <li class="faq__item"> 
-    <span>Ви:</span>
-    <p><?php the_field('faq_question'); ?></p>
-  </li>
-
- 
-  <?php for ($counter = 1; $counter <= $faq_count; $counter++): ?> 
-    <li class="faq__item faq__item--manager">
-      <span>Менеджер:</span>
-      <p>
-        <?php the_field('faq_anwerse' . $counter); ?> 
-
-        <?php 
-        $sub_link = get_field('faq_link' . $counter); 
-        if ($sub_link): ?>
-          <a href="<?php echo esc_url($sub_link['url']); ?>">
-            <?php echo esc_html(pll__('Детальніше')); ?>
-          </a>
-        <?php endif; ?>
-      </p>
-    </li>
-  <?php endfor; ?>
-</ul>
+      <ul class="faq__list faq__list--home">
+  <?php
+        $faq_count = get_field('faq_count');
+        ?>
+      
+        <li class="faq__item">
+          <span>
+              <?php
+              $current_lang = pll_current_language();
+              if ('ua' === $current_lang): ?>
+                Ви:
+              <?php elseif ('ru' === $current_lang): ?>
+                Ви:
+              <?php else: ?>
+               You:
+              <?php endif; ?>
+          </span>
+          <p><?php the_field('faq_question'); ?></p>
+        </li>
+      
+        <?php for ($counter = 1; $counter <= $faq_count; $counter++): ?>
+          <li class="faq__item faq__item--manager">
+            <span>
+                <?php
+                  $current_lang = pll_current_language();
+                  if ('ua' === $current_lang): ?>
+                  Менеджер:
+                <?php elseif ('ru' === $current_lang): ?>
+                 Менеджер:
+                <?php else: ?>
+                 Manager
+                <?php endif; ?>
+            </span>
+            <p>
+              <?php the_field('faq_anwerse' . $counter); ?>
+            </p>
+          </li>
+        <?php endfor; ?>
+      </ul>
 
 
         </div>

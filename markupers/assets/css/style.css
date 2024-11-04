@@ -3252,6 +3252,14 @@ p {
   display: none
 }
 
+[data-theme=light] .form__input::placeholder {
+  color: #fff
+}
+
+[data-theme=light] .form__input {
+  color: #fff
+}
+
 [data-theme=light] .btn--transparent:before {
   background-color: var(--color-orange-400)
 }

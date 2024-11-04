@@ -1,47 +1,5 @@
   <footer class="footer">
-      <div class="container">
-        <div class="footer__inner">
-          
-         
-  <a class="logo" href="<?php echo get_home_url(); ?>">
-    <img src="<?php echo _gm_assets_path('images/footer-logo.svg'); ?>" 
-         class="logo__image" 
-         width="181" 
-         height="21" 
-         alt="logo of markupers">
-  </a>
-
-       <a class="btn btn--transparent" href="/">
-         <?php
-         $current_lang = pll_current_language();
-         if ('ua' === $current_lang): ?>
-        Заповніть бриф
-         <?php elseif ('ru' === $current_lang): ?>
-        Заповни бриф
-         <?php else: ?>
-         Fill in the brief
-        <?php endif; ?>
-      </a>
-
-        <div class="footer__copyright"> 
-            <span>
-            <?php echo date('Y');?>
-          </span> 
-          <a class="footer__link" href="https://markupers.wp/contract-offer/">Contract offer</a> 
-            </div>
-
-         <ul class="social"> 
-           <?php
-            if (is_active_sidebar('social')) {
-              dynamic_sidebar('social');
-            }
-            ?>
-         </ul>
-         
-        </div>
-      </div>
-
-    </footer>
+     </footer>
 
      <div class="modals">
       <dialog class="modal modal--start">
