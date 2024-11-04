@@ -1,6 +1,6 @@
 <?php
 
-get_header();
+get_header('simple');
 
 ?>
 
@@ -168,5 +168,9 @@ get_header();
     </button>
   </dialog>
 </div>
+
+</body>
+
+</html>
 
 

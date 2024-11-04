@@ -9,7 +9,9 @@ get_header();
 ?>
 
   <main class="main main--top">
-      <h1 class="sr-only">Our services</h1>
+      <h1 class="sr-only">
+        <?php the_field('services_subtitle');?>
+      </h1>
       <section class="section services services--filter">
         <div class="container">
           <div class="wrapper">
@@ -21,22 +23,66 @@ get_header();
 
             <nav class="custom-checker is-scrolling">
               <ul class="custom-checker__list">
-                <li class="custom-checker__item"> <input class="custom-checker__input" type="radio" name="category"
-                    value="all" id="allCategories" checked> <label class="custom-checker__label" for="allCategories">
-                    All </label> </li>
-                <li class="custom-checker__item"> <input class="custom-checker__input" type="radio" name="category"
-                    value="web-development" id="webDevelopment"> <label class="custom-checker__label"
-                    for="webDevelopment">Web-development </label> </li>
-                <li class="custom-checker__item"> <input class="custom-checker__input" type="radio" name="category"
-                    value="promotion" id="promotion"> <label class="custom-checker__label" for="promotion"> Promotion
-                  </label> </li>
-                <li class="custom-checker__item"> <input class="custom-checker__input" type="radio" name="category"
-                    value="support" id="support"> <label class="custom-checker__label" for="support"> Support </label>
+                <li class="custom-checker__item">
+                   <input class="custom-checker__input" type="radio" name="category"
+                    value="all" id="allCategories" checked> 
+                    <label class="custom-checker__label" for="allCategories">
+                      <?php if ('ua' == pll_current_language()) : ?>
+                      Всі
+                       <?php elseif ('ru' == pll_current_language()) : ?>
+                     Все
+                       <?php else : ?>
+                     All
+                       <?php endif; ?>
+                    </label> 
+                  </li>
+
+                <li class="custom-checker__item"> 
+                  <input class="custom-checker__input" type="radio" name="category"
+                    value="web-development" id="webDevelopment"> 
+                    <label class="custom-checker__label"
+                    for="webDevelopment">
+                    <?php if ('ua' == pll_current_language()) : ?>
+                      Веб-розробка
+                       <?php elseif ('ru' == pll_current_language()) : ?>
+                     Веб-розробка
+                       <?php else : ?>
+                    Web-development
+                       <?php endif; ?>
+                    </label>
+                </li>
+
+                <li class="custom-checker__item"> 
+                  <input class="custom-checker__input" type="radio" name="category"
+                    value="promotion" id="promotion">
+                     <label class="custom-checker__label" for="promotion">
+                    <?php if ('ua' == pll_current_language()) : ?>
+                    Реклама
+                       <?php elseif ('ru' == pll_current_language()) : ?>
+                     Реклама
+                       <?php else : ?>
+                   Promotion
+                       <?php endif; ?>
+                  </label>
+                </li>
+
+                <li class="custom-checker__item"> 
+                  <input class="custom-checker__input" type="radio" name="category"
+                    value="support" id="support">
+                     <label class="custom-checker__label" for="support"> 
+                      <?php if ('ua' == pll_current_language()) : ?>
+                    Підтримка
+                       <?php elseif ('ru' == pll_current_language()) : ?>
+                      Підтримка
+                       <?php else : ?>
+                   Support
+                       <?php endif; ?>
+                    </label>
                 </li>
               </ul>
             </nav>
             
-            <ul class="services__list" data-items="1">
+            <ul class="services__list">
 
              <?php
                 $my_posts = get_posts( array(
@@ -63,7 +109,17 @@ get_header();
                     <p> 
                       <?php the_field('services_desc'); ?>
                     </p>
-                    <div class="service-card__price"> <span> Up to </span> <span>  <?php the_field('services_price'); ?> </span> </div>
+                    <div class="service-card__price"> 
+                      <span>  
+                    <?php if ('ua' == pll_current_language()) : ?>
+                      До
+                       <?php elseif ('ru' == pll_current_language()) : ?>
+                     До
+                       <?php else : ?>
+                      Up to
+                       <?php endif; ?>
+                      </span>
+                     <span>  <?php the_field('services_price'); ?> </span> </div>
                   </a> </article>
               </li>
 
@@ -77,8 +133,19 @@ get_header();
              
             </ul> 
 
-            <p> If you can't decide, our manager will definitely help you choose the way your business succeeds for free
-            </p> <button class="btn modal-btn" type="button">Order a consultation</button>
+            <p> <?php the_field('services_text');?>
+            </p> 
+            <button class="btn modal-btn" type="button">
+              <?php
+          $current_lang = pll_current_language();
+          if ('ua' === $current_lang): ?>
+          Замовити послугу
+          <?php elseif ('ru' === $current_lang): ?>
+          Запросить предложение
+          <?php else: ?>
+          Order a consultation
+          <?php endif; ?>
+              </button>
           </div>
         </div>
       </section>

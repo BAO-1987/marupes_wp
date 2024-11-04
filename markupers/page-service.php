@@ -9,7 +9,8 @@ get_header();
  <main class="main main--top">
       <section class="section services services--article">
         <div class="container">
-          <div class="wrapper"> <a class="link" href="<?php echo esc_url(get_field('services_back')['url']); ?>">Go back</a>
+          <div class="wrapper"> 
+            <a class="link" href="<?php echo esc_url(get_field('services_back')['url']); ?>">Go back</a>
             <div class="services__inner">
               <div class="section-heading">
                 <h1 class="title"> 
