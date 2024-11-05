@@ -10,7 +10,21 @@ get_header();
       <section class="section services services--article">
         <div class="container">
           <div class="wrapper"> 
-            <a class="link" href="<?php echo esc_url(get_field('services_back')['url']); ?>">Go back</a>
+            <?php
+            if ($return_url = wp_get_referer()) {
+              ?>
+              <a class="link" href="<?php echo esc_url($return_url); ?>">
+                <?php if ('ua' == pll_current_language()): ?>
+                  Назад
+                <?php elseif ('ru' == pll_current_language()): ?>
+                 Назад
+                <?php else: ?>
+                Back
+                <?php endif; ?>
+              </a>
+              <?php
+            }
+            ?>
             <div class="services__inner">
               <div class="section-heading">
                 <h1 class="title"> 

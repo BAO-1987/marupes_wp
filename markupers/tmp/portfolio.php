@@ -60,7 +60,6 @@
                           <?php else: ?>
                         Specialists
                           <?php endif; ?>
-                        
                       </dt> 
                         <span></span>
                       <dd><?php the_field('portfolio_specialist', $portfolio_id); ?></dd>
@@ -69,49 +68,109 @@
 
                   <?php if (get_field('portfolio_price', $portfolio_id)): ?> 
                     <div class="portfolio__detail">
-                      <dt>Price</dt> <span></span>
+                      <dt>
+                        <?php if ('ua' == pll_current_language()): ?>
+                         Ціна
+                        <?php elseif ('ru' == pll_current_language()): ?>
+                          Цена
+                        <?php else: ?>
+                         Price
+                        <?php endif; ?>
+                      </dt> 
+                      <span></span>
                       <dd><?php the_field('portfolio_price', $portfolio_id); ?></dd>
                     </div>
                   <?php endif; ?>
 
                   <?php if (get_field('portfolio_commercial', $portfolio_id)): ?> 
                     <div class="portfolio__detail">
-                      <dt>Click cost CPC</dt> <span></span>
+                      <dt>
+                          <?php if ('ua' == pll_current_language()): ?>
+                           Ціна за клік (CPC)
+                          <?php elseif ('ru' == pll_current_language()): ?>
+                            Цена за клик (CPC)
+                          <?php else: ?>
+                         Click cost CPC
+                          <?php endif; ?>
+                      </dt> 
+                      <span></span>
                       <dd><?php the_field('portfolio_commercial', $portfolio_id); ?></dd>
                     </div>
                   <?php endif; ?>
 
                    <?php if (get_field('portfolio_conversion', $portfolio_id)): ?> 
                     <div class="portfolio__detail">
-                      <dt>Conversion</dt> <span></span>
+                      <dt>
+                        <?php if ('ua' == pll_current_language()): ?>
+                         Перетворення
+                        <?php elseif ('ru' == pll_current_language()): ?>
+                          Перевоплощения
+                        <?php else: ?>
+                         Conversion
+                        <?php endif; ?>
+                      </dt> 
+                      <span></span>
                       <dd><?php the_field('portfolio_conversion', $portfolio_id); ?></dd>
                     </div>
                   <?php endif; ?>
 
                     <?php if (get_field('portfolio_leads', $portfolio_id)): ?> 
                     <div class="portfolio__detail">
-                      <dt>leads</dt> <span></span>
+                      <dt>
+                        <?php if ('ua' == pll_current_language()): ?>
+                         Призводить
+                        <?php elseif ('ru' == pll_current_language()): ?>
+                          Перевоплощения
+                        <?php else: ?>
+                         leads
+                        <?php endif; ?>
+                      </dt> 
+                        <span></span>
                       <dd><?php the_field('portfolio_leads', $portfolio_id); ?></dd>
                     </div>
                   <?php endif; ?>
 
                   <?php if (get_field('portfolio_coverage', $portfolio_id)): ?> 
                     <div class="portfolio__detail">
-                      <dt>Coverage</dt> <span></span>
+                      <dt>
+                        <?php if ('ua' == pll_current_language()): ?>
+                         Покриття
+                        <?php elseif ('ru' == pll_current_language()): ?>
+                         Покрытие
+                        <?php else: ?>
+                           Coverage
+                        <?php endif; ?>
+                      </dt> <span></span>
                       <dd><?php the_field('portfolio_coverage', $portfolio_id); ?></dd>
                     </div>
                   <?php endif; ?>
 
                   <?php if (get_field('portfolio_involvement', $portfolio_id)): ?> 
                     <div class="portfolio__detail">
-                      <dt>Involvement</dt> <span></span>
+                      <dt>
+                        <?php if ('ua' == pll_current_language()): ?>
+                        Залучення
+                        <?php elseif ('ru' == pll_current_language()): ?>
+                         Участие
+                        <?php else: ?>
+                        Involvement
+                        <?php endif; ?>
+                       </dt> <span></span>
                       <dd><?php the_field('portfolio_involvement', $portfolio_id); ?></dd>
                     </div>
                   <?php endif; ?>
 
                     <?php if (get_field('portfolio_likes', $portfolio_id)): ?> 
                     <div class="portfolio__detail">
-                      <dt>Av. number of likes</dt> <span></span>
+                      <dt>
+                          <?php if ('ua' == pll_current_language()): ?>
+                            Середня к-сть лайків
+                          <?php elseif ('ru' == pll_current_language()): ?>
+                        Среднее к-тво лайков
+                          <?php else: ?>
+                          Av. number of likes
+                          <?php endif; ?>
+                      </dt> <span></span>
                       <dd><?php the_field('portfolio_likes', $portfolio_id); ?></dd>
                     </div>
                   <?php endif; ?>
@@ -122,9 +181,26 @@
                     <?php the_field('portfolio_category', $portfolio_id); ?>
                   </span>
                   <div class="portfolio__btns"> 
-                    <a class="btn btn--transparent" href="<?php the_field('portfolio_more', $portfolio_id); ?>">Learn more</a> 
+                    <a class="btn btn--transparent" href="<?php the_field('portfolio_more', $portfolio_id); ?>">
+                        <?php if ('ua' == pll_current_language()): ?>
+                          Детальніше
+                        <?php elseif ('ru' == pll_current_language()): ?>
+                         Подробно
+                        <?php else: ?>
+                        Learn more
+                        <?php endif; ?>
+                    </a> 
 
-                    <a class="link" href="<?php the_field('portfolio_web', $portfolio_id); ?>" target="_blank">Go to the website</a> </div>
+                    <a class="link" href="<?php the_field('portfolio_web', $portfolio_id); ?>" target="_blank">
+                      <?php if ('ua' == pll_current_language()): ?>
+                       Перейти на сайт
+                      <?php elseif ('ru' == pll_current_language()): ?>
+                        Перейти на сайт
+                      <?php else: ?>
+                        Go to the website
+                      <?php endif; ?>
+                    </a> 
+                  </div>
                 </div>
               </li>
 
