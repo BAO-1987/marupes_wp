@@ -1,6 +1,3 @@
-  <footer class="footer">
-     </footer>
-
      <div class="modals">
       <dialog class="modal modal--start">
         <h2 class="modal__title title">
