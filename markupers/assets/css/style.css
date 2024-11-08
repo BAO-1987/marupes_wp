@@ -3691,6 +3691,10 @@ p {
   overflow: hidden
 }
 
+.blog__item article a:not(.btn) header>span:first-letter {
+  text-transform: uppercase
+}
+
 .blog__iframe iframe {
   width: 100%;
   display: block;
@@ -3919,9 +3923,15 @@ p {
 }
 
 .single__category span {
+  display: block;
+  margin-bottom: 10px;
   color: var(--color-gray-100);
   font-size: 15px;
   line-height: 1.5
+}
+
+.single__category span:first-letter {
+  text-transform: uppercase;
 }
 
 .single__category div {
@@ -4014,7 +4024,7 @@ p {
   mask-image: url(../images/icons/icon-view.svg)
 }
 
-.single__desc {
+.single p:not(:last-child) {
   margin-bottom: 2.6rem
 }
 
@@ -4050,12 +4060,22 @@ p {
 
 .single img {
   border-radius: var(--radius-big);
+  width: 100%;
+  aspect-ratio: 9/4;
+  object-position: center;
+  min-height: 200px;
   overflow: hidden
 }
 
 .single img:not(:last-child) {
   margin-bottom: 2.6rem
 }
+
+.single figure:not(:last-child) {
+  margin-bottom: 2.6rem
+}
+
+
 
 @media only screen and (max-width:992px) {
   .single__wrapper {

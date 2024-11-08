@@ -84,15 +84,12 @@ get_header();
   </div>
   
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const stagesItems = document.querySelectorAll('.stages__item');
-    const count = stagesItems.length;
+const stagesItems = document.querySelectorAll('.stages__item');
+const count = stagesItems.length;
 
-    if (count % 2 !== 0) {
-        const lastItem = stagesItems[count - 1];
-        lastItem.classList.add('last-odd'); //  'last-odd'
-    }
-});
+if (count % 2 !== 0) {
+    stagesItems[count - 1].classList.add('last-odd');
+}
 </script>
 
 </section>

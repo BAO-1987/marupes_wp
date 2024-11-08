@@ -6,7 +6,9 @@ get_header();
 ?>
 
  <main class="main main--top">
-    <h1 class="sr-only">Blog</h1>
+    <h1 class="sr-only">
+       <?php the_field('blog_subtitle');?>
+    </h1>
 
       <section class="blog blog--main section">
 

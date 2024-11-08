@@ -94,7 +94,7 @@ get_header();
           <div class="wrapper">
             <div class="section-heading">
               <h2 class="title">
-                You can learn more about our lives here
+                 <?php the_field('about_news');?>
               </h2>
             </div>
             <div class="blog__slider swiper">
@@ -118,7 +118,7 @@ get_header();
                   // Виведення заголовка посту або інших даних
                 ?>
 
-                <li class="blog__item swiper-slide">
+                <li class="blog__item ">
                   <article>
                      <a href="<?php the_permalink(); ?>">
                       <header> <span></span>
@@ -140,7 +140,10 @@ get_header();
               </ul> 
               <button class="blog__slider-button blog__slider-button--prev" type="button"></button> <button
                 class="blog__slider-button blog__slider-button--next" type="button"></button>
-            </div> <a class="btn" href="#"> View all news </a>
+            </div> 
+              <a class="btn" href="<?php echo esc_url(get_field('about_news_all')['url']); ?>">
+         <?php the_field('about_news_btn');?>
+        </a>
           </div>
         </div>
       </section>

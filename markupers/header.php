@@ -32,7 +32,6 @@
             wp_nav_menu([
               'menu' => 'Main', // назва меню
               'container' => false, // вимикає контейнер навколо меню
-              'echo' => true, // виводить меню відразу
               'fallback_cb' => 'wp_page_menu', // резервна функція
               'items_wrap' => '<ul class="nav__list">%3$s</ul>', // формат списку
               'depth' => 3, // кількість рівнів підменю

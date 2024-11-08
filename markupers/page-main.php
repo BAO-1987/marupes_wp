@@ -8,7 +8,8 @@
 
  <main class="main main--home"> 
  <section class="hero"> 
- <canvas class="canvas"></canvas> 
+ <canvas class="canvas">
+ </canvas> 
  <div class="container"> 
   <div class="hero__inner">
    <ul class="social"> 
@@ -167,6 +168,7 @@
 
         <?php endforeach; ?>
           </ul>
+          
             <a class="btn" href="<?php echo esc_url(get_field('advantages_all')['url']); ?>"> 
             <?php the_field('advantages_btn'); ?>
            </a>
@@ -179,8 +181,10 @@
             <h2 class="title"> 
               <?php the_field('reviews_title'); ?>
             </h2>
-            <div class="reviews__nav"> <button class="slider-btn slider-btn--prev" type="button"></button> <button
-                class="slider-btn slider-btn--next" type="button"></button> </div>
+            <div class="reviews__nav"> 
+              <button class="slider-btn slider-btn--prev" type="button"></button> 
+              <button class="slider-btn slider-btn--next" type="button"></button> 
+            </div>
           </div>
 
           <div class="reviews__slider">
@@ -204,7 +208,7 @@
                           if ('ua' === $current_lang): ?>
                        Перейти на сайт
                           <?php elseif ('ru' === $current_lang): ?>
-                        До
+                        Перейти на сайт
                           <?php else: ?>
                         Go to the website
                           <?php endif; ?>
@@ -215,7 +219,7 @@
                           if ('ua' === $current_lang): ?>
                      Переглянути в оригіналі
                           <?php elseif ('ru' === $current_lang): ?>
-                        До
+                        Просмотреть в оригинале
                           <?php else: ?>
                         View in original
                           <?php endif; ?>
@@ -272,10 +276,13 @@
                   // Виведення заголовка посту або інших даних
                 ?>
 
-                <li class="blog__item swiper-slide  <?php the_field('blog_category'); ?>">
+                <li class="blog__item swiper-slide">
                   <article>
                      <a href="<?php the_permalink(); ?>">
-                      <header> <span></span>
+                      <header> 
+                        <span>
+                         <?php the_field('blog_category'); ?>
+                      </span>
                         <div> <span><?php the_time('d.m.y');?></span> 
                         <span>
                           <?php the_field('blog_read');?>
@@ -354,7 +361,7 @@
                 <?php elseif ('ru' === $current_lang): ?>
                  Менеджер:
                 <?php else: ?>
-                 Manager
+                 Manager:
                 <?php endif; ?>
             </span>
             <p>
@@ -363,7 +370,6 @@
           </li>
         <?php endfor; ?>
       </ul>
-
 
         </div>
       </section>

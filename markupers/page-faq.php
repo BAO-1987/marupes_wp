@@ -16,7 +16,8 @@ get_header();
             </h1>
           </div>
 
-     <ul class="faq__list">
+        
+ <ul class="faq__list">
 
   <?php 
   $faq_count = get_field('faq_count'); 
@@ -25,7 +26,18 @@ get_header();
 
   <?php while ($counter <= $faq_count): ?> 
     <li class="faq__item faq__item--client"> 
-      <a class="faq__link" href="#time<?php echo $counter; ?>"> <span>You:</span>
+      <a class="faq__link" href="#time<?php echo $counter; ?>">
+        <span>
+         <?php
+                  $current_lang = pll_current_language();
+                  if ('ua' === $current_lang): ?>
+                  Ти:
+                <?php elseif ('ru' === $current_lang): ?>
+                Ти:
+                <?php else: ?>
+                You:
+                <?php endif; ?>
+      </span>
         <p>
           <?php the_field('faq_question' . $counter); ?>
         </p>
@@ -34,7 +46,16 @@ get_header();
 
     <li class="faq__item faq__item--manager faq__panels" id="time<?php echo $counter; ?>">
       <div> 
-        <span>Manager:</span>
+        <span> 
+          <?php
+                  $current_lang = pll_current_language();
+                  if ('ua' === $current_lang): ?>
+                  Менеджер:
+                <?php elseif ('ru' === $current_lang): ?>
+                 Менеджер:
+                <?php else: ?>
+                 Manager
+                <?php endif; ?></span>
         <p>  <?php the_field('faq_anwerse' . $counter); ?>
                        
         </p>
@@ -42,10 +63,10 @@ get_header();
       </div>
     </li>
 
-    <?php $counter++; ?>
-  <?php endwhile; ?>
-  
-    </ul>
+     <?php $counter++; ?>
+   <?php endwhile; ?>
+  </ul>
+
 
         </div>
       </section>

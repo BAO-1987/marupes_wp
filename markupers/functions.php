@@ -249,6 +249,29 @@ function fixwp_add_acf_pll( $post_types, $is_settings ) {
 }
 
 
+function true_remove_default_widget() {
+	unregister_widget('WP_Widget_Archives'); // Архивы
+	unregister_widget('WP_Widget_Calendar'); // Календарь
+	unregister_widget('WP_Widget_Categories'); // Рубрики
+	unregister_widget('WP_Widget_Meta'); // Мета
+	unregister_widget('WP_Widget_Pages'); // Страницы
+	unregister_widget('WP_Widget_Recent_Comments'); // Свежие комментарии
+	unregister_widget('WP_Widget_Recent_Posts'); // Свежие записи
+	unregister_widget('WP_Widget_RSS'); // RSS
+	unregister_widget('WP_Widget_Search'); // Поиск
+	unregister_widget('WP_Widget_Tag_Cloud'); // Облако меток
+	unregister_widget('WP_Widget_Text'); // Текст
+	unregister_widget('WP_Nav_Menu_Widget'); // Произвольное меню
+  unregister_widget('WP_Widget_Tag_Cloud');            // Віджет хмарки тегів
+  unregister_widget('WP_Widget_Media_Image');          // Віджет для зображень
+ unregister_widget('WP_Widget_Media_Gallery');        // Віджет для галерей
+  unregister_widget('WP_Widget_Media_Audio');          // Віджет для аудіо
+  unregister_widget('WP_Widget_Media_Video');          // Віджет для відео
+}
+ 
+add_action( 'widgets_init', 'true_remove_default_widget', 20 );
+
+
 
 
 
