@@ -1,39 +1,69 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> class="page">
+<html <?php language_attributes(); ?> class="page ">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="dark light">
-<meta charset="<?php bloginfo('charset'); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
 
-<style>.page{scroll-padding-top:calc(var(--header-height))}</style>
-<script>document.documentElement.setAttribute("data-theme",localStorage.getItem("theme")||"dark");</script>
+    <link rel="shortcut icon" type="image/png" sizes="16x16"
+          href="<?php echo get_stylesheet_directory_uri() . '/assets/images/favicon-16x16.ebc231f6.png'; ?>">
+    <link rel="shortcut icon" type="image/png" sizes="32x32"
+          href="<?php echo get_stylesheet_directory_uri() . '/assets/images/favicon-32x32.e1f0fdcb.png'; ?>">
 
-  <?php wp_head(); ?>
+     <?php wp_head(); ?>
+
+    <style>
+        .page {
+            scroll-padding-top: calc(var(--header-height));
+        }
+    </style>
+
+    <script>
+        document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "dark");
+    </script>
 </head>
 
-<body class="page__body"><svg aria-hidden="true" width="0" height="0" style="position:absolute"></svg> <div class="site-container"> <header class="header header--simple"> <div class="container"> <nav class="nav"> 
-  
-  <a class="logo" href="<?php echo  get_home_url(); ?>">
-        <?php
-        $logo_img = '';
-        if ($custom_logo_id = get_theme_mod('custom_logo')) {
-          $logo_img = wp_get_attachment_image($custom_logo_id, 'full', false, array(
-            'class' => 'logo__image',
-            'width' => '181',
-            'height' => '21'
-          ));
-        }
-        echo $logo_img;
-        ?>
-      </a>
-  
-     <ul class="social"> 
-        <?php
-          if (is_active_sidebar('social')) {
-         dynamic_sidebar('social');
-         }
-          ?>
-       </ul>
- 
+<body class="page__body">
+<svg aria-hidden="true" width="0" height="0" style="position:absolute"></svg>
+<div class="site-container">
+    <header class="header header--simple">
+        <div class="container">
 
-</nav> </div> </header> <script>const startHeightValue=()=>{let e=1*window.innerHeight;document.querySelector(":root").style.setProperty("--vh",`${e}px`);const t=document.querySelector(".header"),r=t?t.offsetHeight:0;document.documentElement.style.setProperty("--header-height",`${r}px`)};window.addEventListener("resize",startHeightValue),window.addEventListener("scroll",startHeightValue),startHeightValue();</script>
+            <nav class="nav">
+                <a class="logo " href="<?= esc_url(home_url()); ?>">
+                    <?php
+                    $custom_logo_id = get_theme_mod('custom_logo');
+                    $second_logo_id = get_theme_mod('second_logo');
+
+                    if ($custom_logo_id) {
+                        $logo_url = wp_get_attachment_image_src($custom_logo_id, 'full');
+
+                        echo '<img class="logo__img" data-logo="light" src="' . esc_url($logo_url[0]) . '" alt="logo of markupers" width="181" height="21" loading="lazy" decoding="async" style="display:none">';
+                    } else {
+                        echo '<img class="logo__img" data-logo="light" src="' . get_stylesheet_directory_uri() . '/assets/images/logo.svg" alt="logo of markupers" width="181" height="21" loading="lazy">';
+                    }
+
+                    if ($second_logo_id) {
+                        echo '<img class="logo__img" data-logo="dark" src="' . esc_url( $second_logo_id ) . '" alt="logo of markupers dark" width="181" height="21" loading="lazy" decoding="async" style="display:none">';
+                    }
+                    ?>
+                </a>
+
+                 <?php get_template_part('template-parts/socials-menu'); ?>
+
+            </nav>
+
+        </div>
+    </header>
+
+    <script>const startHeightValue = () => {
+            let vh = window.innerHeight * 1;
+            document.querySelector(":root").style.setProperty("--vh", `${vh}px`);
+            const pageHeader = document.querySelector(".header");
+            const headerHeight = pageHeader ? pageHeader.offsetHeight : 0;
+            document.documentElement.style.setProperty("--header-height", `${headerHeight}px`);
+        };
+        window.addEventListener("resize", startHeightValue);
+        window.addEventListener("scroll", startHeightValue);
+        startHeightValue();
+    </script>

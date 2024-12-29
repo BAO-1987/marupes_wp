@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en" class="page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+
+  <link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon-16x16.ebc231f6.png">
+  <link rel="shortcut icon" type="image/png" sizes="32x32" href="/favicon-32x32.e1f0fdcb.png">
+
+ <title>Markupers | Site Price Calculator</title>
+
+  <link rel="stylesheet" href="/404.21711d4b.css">
+  <link rel="stylesheet" href="/404.b10d73a7.css">
+
+  <script src="/404.6300e3bc.js" defer=""></script>
+  <script src="/404.975ef6c8.js" defer=""></script>
+
+  <style>.page {
+  scroll-padding-top: calc(var(--header-height));
+}
+
+</style>
+
+  <script>document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "dark");
+
+</script>
+
+</head>
+
+<body class="page__body"><svg aria-hidden="true" width="0" height="0" style="position:absolute"></svg>
+  <div class="site-container">
+    <header class="header ">
+
+  <div class="container">
+
+    <nav class="nav">
+      <a class="logo " href="/index.html">
+        <img class="logo__img" src="/logo.cd13699a.svg" alt="logo of markupers" width="181" height="21" loading="lazy">
+      </a>
+
+      <div class="nav__inner">
+
+        <ul class="nav__list">
+
+          <li>
+            <a class="link-dropdown true">
+              Services
+            </a>
+
+            <ul class="sub-menu">
+              <li>
+                <a href="/our-services.html">Our services</a>
+              </li>
+
+              <li>
+                <a href="/multi-page-website.html">Multi-page website</a>
+              </li>
+
+              <li>
+                <a href="/digital-pack.html">Digital pack</a>
+              </li>
+
+              <li>
+                <a href="#">SEO</a>
+              </li>
+
+              <li>
+                <a href="#">SMM</a>
+              </li>
+
+              <li>
+                <a href="#">Contextual advertising</a>
+              </li>
+
+              <li>
+                <a href="#">Landing page</a>
+              </li>
+
+              <li>
+                <a href="#">Technical support</a>
+              </li>
+
+              <li>
+                <a href="#">Redesign</a>
+              </li>
+
+              <li>
+                <a href="#">Logo development</a>
+              </li>
+
+              <li>
+                <a href="/price-calculator.html">Site price calculator</a>
+              </li>
+
+            </ul>
+          </li>
+
+          <li>
+            <a class="link-dropdown false">
+              Portfolio
+            </a>
+
+            <ul class="sub-menu">
+              <li>
+                <a href="/portfolio.html">Portfolio</a>
+              </li>
+
+              <li>
+                <a href="/reviews.html">Reviews</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a class="link-dropdown false">
+              About us
+            </a>
+
+            <ul class="sub-menu">
+              <li>
+                <a href="/about.html">About Markupers</a>
+              </li>
+
+              <li>
+                <a href="/faq.html">FAQ</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a class="false" href="/blog.html">
+              Blog
+            </a>
+          </li>
+
+          <li>
+            <a class="false" href="#">
+              Education
+            </a>
+          </li>
+
+          <li>
+            <a class="false" href="/contacts.html">
+              Contacts
+            </a>
+          </li>
+        </ul>
+
+        <button class="theme-switch" type="button">
+          <img class="theme-switch__icon dark" src="/dark.86dd0515.svg">
+          <img class="theme-switch__icon light" src="/light.9b29ab32.svg">
+          <span class="sr-only">Color theme change button</span>
+        </button>
+
+      </div>
+
+      <button class="burger" type="button">
+        <span class="sr-only">Open mobile menu</span>
+        <span class="burger__line"></span>
+      </button>
+    </nav>
+
+  </div>
+</header>
+
+<script>const startHeightValue = ()=>{
+    let vh = window.innerHeight * 1;
+    document.querySelector(":root").style.setProperty("--vh", `${vh}px`);
+    const pageHeader = document.querySelector(".header");
+    const headerHeight = pageHeader ? pageHeader.offsetHeight : 0;
+    document.documentElement.style.setProperty("--header-height", `${headerHeight}px`);
+};
+window.addEventListener("resize", startHeightValue);
+window.addEventListener("scroll", startHeightValue);
+startHeightValue();
+
+</script>
+
+    <main class="main main--top">
+
+      <section class="section">
+  <div class="container">
+    <div class="wrapper">
+      <div class="section-heading">
+        <h1 class="title">
+          Site price calculator
+        </h1>
+
+        <p>
+          With the help of a calculator you will be able to determine the approximate cost of your site in 3 steps
+        </p>
+      </div>
+
+        <form class="calculator" action="#">
+          <div class="calculator__container">
+            <div class="calculator__tabpanels">
+
+              <div class="calculator__tabpanel" role="tabpanel" aria-labelledby="first-list">
+                <ul class="calculator__list calculator__list--first">
+                  <li class="calculator__item">
+                    <label class="calculator__label">
+                      Type of project:
+
+                      <select class="calculator__select" data-placeholder="Not selected" name="project-type" id="project-type" aria-label="choosing-project">
+                        <option value="digital-pack">Digital pack</option>
+                        <option value="seo">SEO</option>
+                        <option value="smm">SMM</option>
+                        <option value="landing-page">Landing page</option>
+                      </select>
+
+                    </label>
+                  </li>
+
+                  <li class="calculator__item">
+                    <label class="calculator__label">
+                      How many items in the catalog / services?
+
+                      <select class="calculator__select" data-placeholder="Not selected" name="projects-quantity" id="projects-quantity" aria-label="projects-quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                         <option value="5">5</option>
+                      </select>
+
+                    </label>
+                  </li>
+
+                  <li class="calculator__item">
+                    <label class="calculator__label">
+                      Is there a ready SRS?
+
+                      <input type="checkbox" name="src" id="src">
+                      <span class="calculator__checker calculator__label--checkbox">
+                        <span>No</span>
+                        <span>Yes</span>
+                      </span>
+                    </label>
+                  </li>
+
+                  <li class="calculator__item">
+                    <label class="calculator__label">
+                      Do you need a CEO?
+
+                      <input type="checkbox" name="ceo" id="ceo" checked="">
+                      <span class="calculator__checker calculator__label--checkbox">
+                        <span>No</span>
+                        <span>Yes</span>
+                      </span>
+                    </label>
+                  </li>
+
+                  <li class="calculator__item">
+                    <fieldset>
+                      <legend class="calculator__label">
+                        Is the brand book ready?
+                      </legend>
+
+                      <div>
+                        <label class="calculator__label calculator__label--radio">
+                          1 mon
+
+                          <input type="radio" name="terms" id="mo1">
+                          <span class="calculator__radio"></span>
+                        </label>
+
+                        <label class="calculator__label calculator__label--radio">
+                          2-4 mon
+
+                          <input type="radio" name="terms" id="mon2">
+                          <span class="calculator__radio"></span>
+                        </label>
+
+                        <label class="calculator__label calculator__label--radio">
+                          5+ mon
+
+                          <input type="radio" name="terms" id="mon5">
+                          <span class="calculator__radio"></span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </li>
+
+                  <li class="calculator__item">
+                    <fieldset>
+                      <legend class="calculator__label">
+                        Is the brand book ready?
+                      </legend>
+
+                      <div>
+                        <label class="calculator__label calculator__label--radio">
+                          Yes
+
+                          <input type="radio" name="brand-book" id="yes-brandbook">
+                          <span class="calculator__radio"></span>
+                        </label>
+
+                        <label class="calculator__label calculator__label--radio">
+                          No
+
+                          <input type="radio" name="brand-book" id="no-brandbook" checked="">
+                          <span class="calculator__radio"></span>
+                        </label>
+
+                        <label class="calculator__label calculator__label--radio">
+                          Let's do it!
+
+                          <input type="radio" name="brand-book" id="do-brandbook">
+                          <span class="calculator__radio"></span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </li>
+
+                  <li class="calculator__item">
+                    <fieldset>
+                      <legend class="calculator__label">
+                        Do you need a site management system?
+                      </legend>
+
+                      <div>
+                        <label class="calculator__label calculator__label--radio">
+                          Yes
+
+                          <input type="radio" name="management" id="management-yes">
+                          <span class="calculator__radio"></span>
+                        </label>
+
+                        <label class="calculator__label calculator__label--radio">
+                          No
+
+                          <input type="radio" name="management" id="management-no" checked="">
+                          <span class="calculator__radio"></span>
+                        </label>
+
+                        <label class="calculator__label calculator__label--radio">
+                          Let's do it!
+
+                          <input type="radio" name="management" id="management-maybe">
+                          <span class="calculator__radio"></span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="calculator__tabpanel" role="tabpanel" aria-labelledby="second-list" hidden="">
+                <h2>Select the required pages and functionality</h2>
+
+                <ul class="calculator__table">
+                  <li class="calculator__table-row">
+                    <ul class="calculator__row-list">
+                      <li class="calculator__row-item">
+                        <span class="calculator__page">
+                          Home page
+                        </span>
+                      </li>
+
+                      <li class="calculator__row-item">
+                        <span class="calculator__page-price">
+                          $0
+                        </span>
+                      </li>
+
+                      <li class="calculator__row-item">
+                        <label class="calculator__label calculator__label--checkbox">
+                          <input type="checkbox" name="src" id="add-home-page" checked="">
+                          <span class="calculator__checker">
+                            <span>No</span>
+                            <span>Yes</span>
+                          </span>
+                        </label>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li class="calculator__table-row">
+                    <ul class="calculator__row-list">
+                      <li class="calculator__row-item">
+                        <span class="calculator__page">
+                          About us
+                        </span>
+                      </li>
+
+                      <li class="calculator__row-item">
+                        <span class="calculator__page-price">
+                          $0
+                        </span>
+                      </li>
+
+                      <li class="calculator__row-item">
+                        <label class="calculator__label calculator__label--checkbox">
+                          <input type="checkbox" name="src" id="add-about-us">
+                          <span class="calculator__checker">
+                            <span>No</span>
+                            <span>Yes</span>
+                          </span>
+                        </label>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li class="calculator__table-row">
+                    <ul class="calculator__row-list">
+                      <li class="calculator__row-item">
+                        <span class="calculator__page">
+                          Contacts
+                        </span>
+                      </li>
+
+                      <li class="calculator__row-item">
+                        <span class="calculator__page-price">
+                          $30
+                        </span>
+                      </li>
+
+                      <li class="calculator__row-item">
+                        <label class="calculator__label calculator__label--checkbox">
+                          <input type="checkbox" name="src" id="add-contacts" checked="">
+                          <span class="calculator__checker">
+                            <span>No</span>
+                            <span>Yes</span>
+                          </span>
+                        </label>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li class="calculator__table-row">
+                    <ul class="calculator__row-list">
+                      <li class="calculator__row-item">
+                        <span class="calculator__page">
+                          Home page
+                        </span>
+                      </li>
+
+                      <li class="calculator__row-item">
+                        <span class="calculator__page-price">
+                          $0
+                        </span>
+                      </li>
+
+                      <li class="calculator__row-item">
+                        <label class="calculator__label calculator__label--checkbox">
+                          <input type="checkbox" name="src" id="home-page" checked="">
+                          <span class="calculator__checker">
+                            <span>No</span>
+                            <span>Yes</span>
+                          </span>
+                        </label>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li class="calculator__table-row">
+                    <ul class="calculator__row-list">
+                      <li class="calculator__row-item">
+                        <span class="calculator__page">
+                          About us
+                        </span>
+                      </li>
+
+                      <li class="calculator__row-item">
+                        <span class="calculator__page-price">
+                          $0
+                        </span>
+                      </li>
+
+                      <li class="calculator__row-item">
+                        <label class="calculator__label calculator__label--checkbox">
+                          <input type="checkbox" name="src" id="about-us">
+                          <span class="calculator__checker">
+                            <span>No</span>
+                            <span>Yes</span>
+                          </span>
+                        </label>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li class="calculator__table-row">
+                    <ul class="calculator__row-list">
+                      <li class="calculator__row-item">
+                        <span class="calculator__page">
+                          Contacts
+                        </span>
+                      </li>
+
+                      <li class="calculator__row-item">
+                        <span class="calculator__page-price">
+                          $30
+                        </span>
+                      </li>
+
+                      <li class="calculator__row-item">
+                        <label class="calculator__label calculator__label--checkbox">
+                          <input type="checkbox" name="src" id="contacts" checked="">
+                          <span class="calculator__checker">
+                            <span>No</span>
+                            <span>Yes</span>
+                          </span>
+                        </label>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="calculator__tabpanel" role="tabpanel" aria-labelledby="third-list" hidden="">
+                <ul class="calculator__list calculator__list--third">
+                  <li class="calculator__item">
+                    <fieldset>
+                      <legend class="calculator__label">
+                        Terms of site creation
+                      </legend>
+
+                      <div>
+                        <label class="calculator__label calculator__label--radio">
+                          Yes
+
+                          <input type="radio" name="terms" id="terms-agree">
+                          <span class="calculator__radio"></span>
+                        </label>
+
+                        <label class="calculator__label calculator__label--radio">
+                          No, we write ourselves
+
+                          <input type="radio" name="terms" id="terms-decline">
+                          <span class="calculator__radio"></span>
+                        </label>
+
+                        <label class="calculator__label calculator__label--radio">
+                          Need to write
+
+                          <input type="radio" name="terms" id="terms-nessesery">
+                          <span class="calculator__radio"></span>
+                        </label>
+                      </div>
+                    </fieldset>
+                  </li>
+
+                  <li class="calculator__item">
+                    <label class="calculator__label calculator__label--checkbox">
+                      Do you need an adaptive?
+
+                      <input type="checkbox" name="src" id="adaptive">
+                      <span class="calculator__checker calculator__label--checkbox">
+                        <span>No</span>
+                        <span>Yes</span>
+                      </span>
+                    </label>
+                  </li>
+
+                  <li class="calculator__item">
+                    <label class="calculator__label  calculator__label--checkbox">
+                      Do you need a SMM?
+
+                      <input type="checkbox" name="ceo" id="smm">
+                      <span class="calculator__checker">
+                        <span>No</span>
+                        <span>Yes</span>
+                      </span>
+                    </label>
+                  </li>
+
+                  <li class="calculator__item">
+                    <label class="calculator__label calculator__label--checkbox">
+                      Is there a logo?
+
+                      <input type="checkbox" name="ceo" id="logo">
+                      <span class="calculator__checker">
+                        <span>No</span>
+                        <span>Yes</span>
+                      </span>
+                    </label>
+                  </li>
+
+                  <li class="calculator__item">
+                    <label class="calculator__label calculator__label--checkbox">
+                      Do you need a Contextual advertising
+
+                      <input type="checkbox" name="ceo" id="contextual-advertising">
+                      <span class="calculator__checker">
+                        <span>No</span>
+                        <span>Yes</span>
+                      </span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="calculator__button-panel">
+              <ul class="calculator__buttons" role="tablist" aria-label="Price calculator">
+                <li class="calculator__button">
+                  <button type="button" role="tab" aria-selected="true" id="first-list">1</button>
+                </li>
+
+                <li class="calculator__button">
+                  <button type="button" role="tab" aria-selected="false" id="second-list">2</button>
+                </li>
+
+                <li class="calculator__button">
+                  <button type="button" role="tab" aria-selected="false" id="third-list">3</button>
+                </li>
+              </ul>
+
+              <button class="link link--next" type="button">The next</button>
+            </div>
+          </div>
+
+          <ul class="calculator__list calculator__list--submit">
+            <li class="calculator__item">
+              <h2>Project price:</h2>
+            </li>
+
+            <li class="calculator__item">
+              <div class="calculator__total-sum">
+                <p>You haven't selected anything yet</p>
+              </div>
+            </li>
+
+            <li class="calculator__item">
+              <span class="calculator__total-price">
+                Price:
+                <span class="calculator__price-counter">0</span>
+              </span>
+            </li>
+
+            <li class="calculator__item">
+              <button class="btn btn--transparent" type="submit">Order a consultation</button>
+            </li>
+          </ul>
+        </form>
+
+        <p>
+          If something is not clear whether you are hesitant, you can leave a request and we will call you, or you can call yourself
+        </p>
+      </div>
+
+    </div>
+</section>
+
+      <section class="contacts section">
+
+  <div class="container">
+
+    <div class="contacts__inner">
+
+      <div class="contacts__form">
+
+        <div class="section-heading">
+          <h2 class="title">
+            Contact us
+          </h2>
+          <p>
+            Contacts us for a quote, help or to join the team
+          </p>
+        </div>
+
+            <form class="form" action="#">
+      <div class="form__inner">
+        <label class="form__label">
+          <input class="form__input" type="text" name="user-name" placeholder="Name" required="">
+        </label>
+
+        <label class="form__label">
+          <input class="form__input" name="user-phone" placeholder="Phone" inputmode="tel" type="tel" required="">
+        </label>
+
+        <label class="form__label form__label--textarea">
+          <textarea class="form__input form__input--textarea" placeholder="Massage" name="user-message" rows="2"></textarea>
+        </label>
+
+        <span class="form__label form__label--necessarily"> – necessarily</span>
+
+        <p class="form__privacy">
+          By clicking the button, I consent to the processing of my personal
+          data
+        </p>
+
+        <button class="btn btn--form form__btn" type="submit">
+          Request a quote
+        </button>
+      </div>
+    </form>
+      </div>
+
+      <div class="contacts__info">
+        <div class="contact__information">
+          <h3 class="title">Info</h3>
+
+          <ul class="contacts__list">
+            <li class="contacts__item">
+              <span class="contacts__name contacts__name--email">Email</span>
+              <a class="contacts__link" href="mailto:hello@gmail.com">hello@gmail.com</a>
+            </li>
+
+            <li class="contacts__item">
+              <span class="contacts__name contacts__name--phone">Phone</span>
+              <a class="contacts__link" href="tel:+380999999999">+38 099 999 99 99</a>
+            </li>
+
+            <li class="contacts__item">
+              <span class="contacts__name contacts__name--schedule">Schedule</span>
+              <span class="contacts__link">9:00-18:00</span>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="contacts__follow">
+          <h3 class="title">Follow us</h3>
+          <ul class="social">
+  <li class="social__item">
+    <a class="social__link social__link--fb" href="#" target="_blank">
+      <span class="sr-only">Facebook page</span>
+    </a>
+  </li>
+
+  <li class="social__item">
+    <a class="social__link social__link--ln" href="#" target="_blank">
+      <span class="sr-only">Linkedin page</span>
+    </a>
+  </li>
+
+  <li class="social__item">
+    <a class="social__link social__link--insta" href="#" target="_blank">
+      <span class="sr-only">Instagram page</span>
+    </a>
+  </li>
+
+  <li class="social__item">
+    <a class="social__link social__link--yt" href="#" target="_blank">
+      <span class="sr-only">Youtube page</span>
+    </a>
+  </li>
+
+  <li class="social__item">
+    <a class="social__link social__link--be" href="#" target="_blank">
+      <span class="sr-only">Behance page</span>
+    </a>
+  </li>
+</ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+    </main>
+
+    <footer class="footer footer--social">
+  <div class="container">
+    <div class="footer__inner">
+
+      <a class="logo" href="/index.html">
+        <img class="logo__img" src="/footer-logo.a8632c35.svg" alt="logo of markupers" width="181" height="21" loading="lazy">
+      </a>
+
+      <a class="btn btn--transparent" href="#">Fill in the brief</a>
+
+      <div class="footer__copyright">
+        <span>© 2024</span>
+        <a href="/offer.html" class="footer__link">Contract offer</a>
+      </div>
+
+      <ul class="social">
+  <li class="social__item">
+    <a class="social__link social__link--fb" href="#" target="_blank">
+      <span class="sr-only">Facebook page</span>
+    </a>
+  </li>
+
+  <li class="social__item">
+    <a class="social__link social__link--ln" href="#" target="_blank">
+      <span class="sr-only">Linkedin page</span>
+    </a>
+  </li>
+
+  <li class="social__item">
+    <a class="social__link social__link--insta" href="#" target="_blank">
+      <span class="sr-only">Instagram page</span>
+    </a>
+  </li>
+
+  <li class="social__item">
+    <a class="social__link social__link--yt" href="#" target="_blank">
+      <span class="sr-only">Youtube page</span>
+    </a>
+  </li>
+
+  <li class="social__item">
+    <a class="social__link social__link--be" href="#" target="_blank">
+      <span class="sr-only">Behance page</span>
+    </a>
+  </li>
+</ul>
+
+    </div>
+  </div>
+
+
+</footer>
+
+<div class="modals">
+
+  <dialog class="modal modal--start">
+
+    <h2 class="title modal__title">Request a quote</h2>
+
+    <button class="modal__close" type="button" data-modal-close="">
+      <span class="sr-only">close modal</span>
+    </button>
+
+    <form class="form form--modal" action="#">
+      <div class="form__inner">
+        <label class="form__label">
+          <input class="form__input" type="text" name="user-name" placeholder="Name" required="">
+        </label>
+
+        <label class="form__label">
+          <input class="form__input" name="user-phone" placeholder="Phone" inputmode="tel" type="tel" required="">
+        </label>
+
+        <label class="form__label form__label--textarea">
+          <textarea class="form__input form__input--textarea" placeholder="Massage" name="user-message" rows="2"></textarea>
+        </label>
+
+        <span class="form__label form__label--necessarily"> – necessarily</span>
+
+        <p class="form__privacy">
+          By clicking the button, I consent to the processing of my personal
+          data
+        </p>
+
+        <button class="btn btn--form form__btn" type="submit">
+          Request a quote
+        </button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal modal--finish">
+
+    <button class="modal__close" type="button">
+      <span class="sr-only">close modal</span>
+    </button>
+
+    <h2 class="title modal__title">Thank you</h2>
+
+    <p>Expect a call from our manager</p>
+
+    <button class="btn btn--transparent modal__close" type="button">
+      <span class="sr-only">close modal</span>
+      ok
+    </button>
+
+  </dialog>
+
+</div>
+
+  </div>
+</body>
+
+</html>

@@ -1,6 +1,14 @@
+@charset "UTF-8";
+
 /*
-Theme Name: markupers
-
-Author: BAO
-
+Theme Name: Markupers
+Author: markupers
+Requires at least: 5.6
+Tested up to: 5.6
+Requires PHP: 5.6
+Version: 1.0
+Text Domain: markupers
 */
+
+@import "assets/css/404.21711d4b.css";
+@import "assets/css/404.b10d73a7.css";

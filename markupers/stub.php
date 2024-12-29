@@ -1,43 +1,40 @@
 <?php
+?>
+
+<?php
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
 
 get_header('simple');
 
 ?>
 
-  <main class="main main--empty">
+<main class="main main--empty">
+  <section class="hero-simple hero-simple--stub">
+    <div class="container">
+      <div class="wrapper">
+        <h1 class="title">
+          Work in progress
+        </h1>
 
-      <section class="hero-simple hero-simple--stub">
-        <div class="container">
+        <p>
+          The page is under construction, and for now you can read with
+          services on
+        </p>
 
-         <div class="wrapper">
-            <h1>Work in progress</h1>
+        <a class="btn" href="<?php echo get_home_url(); ?>">
+          Home page
+        </a>
 
-            <p>
-              The page is under construction, and for now you can read with
-              services on
-            </p>
-
-            <a class="btn" href="<?php echo get_home_url(); ?>">
-                  <?php
-                  $current_lang = pll_current_language();
-                  if ('ua' === $current_lang): ?>
-                   На головну
-                  <?php elseif ('ru' === $current_lang): ?>
-                  На главную
-                  <?php else: ?>
-                  Home page
-                  <?php endif; ?>
-                </a>
-          </div>
-
-        </div>
-      </section>
-
-    </main>
-
+      </div>
     </div>
+    </div>
+
+  </section>
+</main>
+
 </body>
 
 </html>
-
-

@@ -1,267 +1,126 @@
 <?php
+add_action('wp_enqueue_scripts', 'markupers_scripts');
+
+function markupers_scripts() {
+    wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/style.css');
+
+    wp_enqueue_script('first-scripts', get_stylesheet_directory_uri() . '/assets/js/404.6300e3bc.js', array(), '1.0.0');
+    wp_enqueue_script('second-scripts', get_stylesheet_directory_uri() . '/assets/js/404.975ef6c8.js', array(), '1.0.0');
+    wp_enqueue_script( 'custom-scripts', get_stylesheet_directory_uri() . '/assets/js/custom.js', array(), '', true );
+
+    wp_script_add_data( 'first-scripts', 'strategy', 'defer' );
+    wp_script_add_data( 'second-scripts', 'strategy', 'defer' );
+}
+
+add_filter( 'upload_mimes', 'svg_upload_allow' );
+function svg_upload_allow( $mimes ) {
+    $mimes['svg']  = 'image/svg+xml';
+
+    return $mimes;
+}
+
+add_theme_support('custom-logo');
+add_theme_support('post-thumbnails');
+add_theme_support('title-tag');
+add_theme_support('menus');
+add_filter( 'document_title_separator', function() {
+	return '|';
+});
+
+function register_location_menus() {
+    register_nav_menus(
+        array(
+            'header-menu' => __( 'Header Menu' ),
+            'footer-menu' => __( 'Footer Menu' )
+        )
+    );
+}
+add_action( 'init', 'register_location_menus' );
+
+function add_custom_logo_options( $wp_customize ) {
+    $wp_customize->add_setting('second_logo', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'second_logo', array(
+        'label'    => __('Second Logo (Light Mode)', 'markupers'),
+        'section'  => 'title_tagline',
+        'settings' => 'second_logo',
+        'priority' => 8,
+    )));
+}
+add_action('customize_register', 'add_custom_logo_options');
+
+// creating function for socials-menu.php
+function create_social_items($menu_item) {
+    $title = strtolower($menu_item->title);
+    $url = esc_url($menu_item->url);
+    $classname = implode(' ', $menu_item->classes);
+
+    return '<li class="social__item">'
+        . '<a class="social__link ' . $classname . '" href="' . $url . '" target="_blank">'
+        . '<span class="sr-only">' . $title . '</span>'
+        . '</a>'
+        . '</li>';
+}
+
 
 $widgets = [
-  'widget-social.php',
   'widget-contacts.php',
   'widget-schedule.php',
   'widget-email.php',
 ];
 
-foreach ($widgets as $w) {
-  require_once(__DIR__ . '/inc/' . $w);
-}
-
-add_action('after_setup_theme', 'gm_setup');
-add_action('wp_enqueue_scripts', 'connect_scripts');
-add_action('wp_enqueue_scripts', 'remove_block_css', 100);
-add_action('after_setup_theme', 'gm_show_sidebar');
 add_action('widgets_init', 'gm_register');
 
-add_filter('script_loader_tag', 'change_my_script', 10, 3);
-add_filter('show_admin_bar', '__return_false');
-
-add_filter('upload_mimes', 'cc_mime_types');
-
-add_filter( 'upload_mimes', 'svg_upload_allow' );
-
-# Добавляет SVG в список разрешенных для загрузки файлов.
-function svg_upload_allow( $mimes ) {
-	$mimes['svg']  = 'image/svg+xml';
-
-	return $mimes;
-}
-
-add_filter( 'wp_check_filetype_and_ext', 'fix_svg_mime_type', 10, 5 );
-
-# Исправление MIME типа для SVG файлов.
-function fix_svg_mime_type( $data, $file, $filename, $mimes, $real_mime = '' ){
-
-	// WP 5.1 +
-	if( version_compare( $GLOBALS['wp_version'], '5.1.0', '>=' ) ){
-		$dosvg = in_array( $real_mime, ['image/svg', 'image/svg+xml' ] );
-	}
-	else {
-		$dosvg = ( '.svg' === strtolower( substr( $filename, -4 ) ) );
-	}
-
-	// mime тип был обнулен, поправим его
-	// а также проверим право пользователя
-	if( $dosvg ){
-
-		// разрешим
-		if( current_user_can('manage_options') ){
-
-			$data['ext']  = 'svg';
-			$data['type'] = 'image/svg+xml';
-		}
-		// запретим
-		else {
-			$data['ext']  = false;
-			$data['type'] = false;
-		}
-
-	}
-
-	return $data;
-}
-
-function gm_show_sidebar()
-{
-    remove_theme_support('widgets-block-editor');
-}
-
-function remove_block_css()
-{
-    wp_dequeue_style('classic-theme-styles');
-    wp_dequeue_style('wp-block-library'); // Wordpress core
-    wp_dequeue_style('wp-block-library-theme'); // Wordpress core
-    wp_dequeue_style('wc-block-style'); // WooCommerce
-    wp_dequeue_style('storefront-gutenberg-blocks'); // Storefront theme
-}
-
-function connect_scripts()
-{
-
-    wp_enqueue_style(
-    'wp-style-vendor',
-    _gm_assets_path('css/reset.css'),
-    [],
-    '1.0',
-    'all'
-  );
-
-    wp_enqueue_style(
-        'wp-style-main',
-        _gm_assets_path('css/style.css'),
-        [],
-        '1.0',
-        'all'
-    );
-  
-    wp_enqueue_script('rs-script-main', _gm_assets_path('js/index.js'));
-
-    // отменяем зарегистрированный jQuery
-    wp_deregister_script('jquery-core');
-    wp_deregister_script('jquery');
-}
-
-function gm_setup()
-{
-    register_nav_menu('menu-header', 'Головне меню');
-
-    add_theme_support('custom-logo');
-    add_theme_support('title-tag');
-    add_theme_support('post-thumbnails');
-}
-
-add_filter( 'document_title_separator', function() {
-	return '|';
-});
-
-function _gm_assets_path($path)
-{
-    return get_template_directory_uri() . '/assets/' . $path;
-}
-
-function cc_mime_types($mimes)
-{
-    $mimes['svg'] = 'image/svg+xml';
-    return $mimes;
-}
-
-function change_my_script($tag, $handle, $src)
-{
-    if ('rs-script-vendor' === $handle || 'rs-script-main' === $handle || 'rs-script-fancy' === $handle) {
-        return str_replace(' src', ' defer src', $tag);
-    }
-    return $tag;
+foreach ($widgets as $w) {
+  require_once(__DIR__ . '/inc/' . $w);
 }
 
 function gm_register()
 {
 
   register_sidebar([
-    'name' => 'Соціальні мережі',
-    'id' => 'social',
-    'before_widget' => null,
-    'after_widget' => null
-  ]);
-
-  register_sidebar([
     'name' => 'Електронна пошта',
     'id' => 'email',
-    'before_widget' => null,
-    'after_widget' => null
+    'before_widget' => "",
+    'after_widget' => ""
   ]);
 
   register_sidebar([
-    'name' => 'номер телефону',
+    'name' => 'Номер телефону',
     'id' => 'phone',
-    'before_widget' => null,
-    'after_widget' => null
+    'before_widget' => "",
+    'after_widget' => ""
   ]);
 
   register_sidebar([
     'name' => 'Графік роботи',
     'id' => 'schedule',
-    'before_widget' => null,
-    'after_widget' => null
+    'before_widget' => "",
+    'after_widget' => ""
   ]);
 
 
-  register_widget('gm_widget_social');
   register_widget('gm_widget_email');
   register_widget('gm_widget_contacts');
   register_widget('gm_widget_schedule');
 }
 
-function disable_plugin_updates($value) {
-    if(isset($value) && is_object($value)) {
-       unset($value->response);
-    }
-    return $value;
-}
-add_filter('site_transient_update_plugins', 'disable_plugin_updates');
-
-function add_custom_pagination_vars($vars)
-{
-  $vars[] = 'paged_news';
-  $vars[] = 'paged_lessons';
-  return $vars;
-}
-add_filter('query_vars', 'add_custom_pagination_vars');
-
-
-
-class Header_Walker_Nav_Menu extends Walker_Nav_Menu {
-
-    function start_el( &$output, $item, $depth = 0, $args = null, $current_object_id = 0 ) {
-        $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-
-        // Оригінальні класи елемента меню
-        $classes = (array) $item->classes;
-
-        // Додаємо клас 'true', якщо елемент активний або є батьківським для активного елемента
-        if (in_array('current-menu-item', $item->classes) || in_array('current-menu-parent', $item->classes) || in_array('current-menu-ancestor', $item->classes)) {
-            $classes[] = 'true'; // Додаємо новий клас 'true'
-        }
-
-        // Формуємо id для елемента, якщо воно є
-        $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-        $id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
-
-        // Формуємо список класів для <li> елемента
-        $class_names = join(' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ));
-        $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-
-        // Виводимо <li> елемент з id та класами
-        $output .= $indent . '<li' . $id . $class_names . '>';
-
-        // Атрибути для <a> тега
-        $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-
-        // Додаємо клас link-dropdown до <a> тега, якщо елемент має підменю
-        $link_classes = '';
-        if ($args->walker->has_children) {
-            $link_classes = 'link-dropdown'; // Додаємо клас для <a> тега з підменю
-            $attributes .= ' title="' . esc_attr($item->title) . '"'; // Додаємо title для підменю
-            $item->url = ''; // Видаляємо href для елементів з підменю
-        }
-
-        // Формуємо <a> тег з відповідними атрибутами та класом link-dropdown
-        $item_output = $args->before;
-        $item_output .= '<a' . $attributes . ($item->url ? ' href="' . esc_attr( $item->url ) . '"' : '') . ' class="' . esc_attr($link_classes) . '">';
-        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-        $item_output .= '</a>';
-        $item_output .= $args->after;
-
-        // Додаємо кінцевий результат у вихідний потік
-        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-    }
-}
-
-add_filter('pll_get_post_types', 'fixwp_add_acf_pll', 10, 2);
-function fixwp_add_acf_pll( $post_types, $is_settings ) {
-    $post_types[] = 'acf';
-    return $post_types;
-}
-
-
 function true_remove_default_widget() {
-	unregister_widget('WP_Widget_Archives'); // Архивы
-	unregister_widget('WP_Widget_Calendar'); // Календарь
+	unregister_widget('WP_Widget_Archives'); // Архиви
+	unregister_widget('WP_Widget_Calendar'); // Календар
 	unregister_widget('WP_Widget_Categories'); // Рубрики
 	unregister_widget('WP_Widget_Meta'); // Мета
-	unregister_widget('WP_Widget_Pages'); // Страницы
-	unregister_widget('WP_Widget_Recent_Comments'); // Свежие комментарии
-	unregister_widget('WP_Widget_Recent_Posts'); // Свежие записи
+	unregister_widget('WP_Widget_Pages'); // Сторінки
+	unregister_widget('WP_Widget_Recent_Comments'); // Нові коментарі
+	unregister_widget('WP_Widget_Recent_Posts'); // Нові пости
 	unregister_widget('WP_Widget_RSS'); // RSS
-	unregister_widget('WP_Widget_Search'); // Поиск
-	unregister_widget('WP_Widget_Tag_Cloud'); // Облако меток
+	unregister_widget('WP_Widget_Search'); // Пошук
+	unregister_widget('WP_Widget_Tag_Cloud'); // Хмара тегів
 	unregister_widget('WP_Widget_Text'); // Текст
-	unregister_widget('WP_Nav_Menu_Widget'); // Произвольное меню
+	unregister_widget('WP_Nav_Menu_Widget'); // Довільне меню
   unregister_widget('WP_Widget_Tag_Cloud');            // Віджет хмарки тегів
   unregister_widget('WP_Widget_Media_Image');          // Віджет для зображень
  unregister_widget('WP_Widget_Media_Gallery');        // Віджет для галерей
@@ -271,14 +130,20 @@ function true_remove_default_widget() {
  
 add_action( 'widgets_init', 'true_remove_default_widget', 20 );
 
+function php_in_widgets($widget_content) {
+	if (strpos($widget_content, '<' . '?') !== false) {
+		ob_start();
+		eval('?' . '>' . $widget_content);
+		$widget_content = ob_get_contents();
+		ob_end_clean();
+	}
+	return $widget_content;
+}
+ 
+add_filter('widget_text', 'php_in_widgets', 99);
 
 
-
-
-
-
-
-
+?>
 
 
 
